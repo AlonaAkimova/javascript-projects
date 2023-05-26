@@ -1,25 +1,30 @@
 "use strict";
+
+function cutFruitPieces(fruit) {
+  return fruit * 4;
+}
 function fruitProcessor(apples, oranges) {
-  console.log(apples, oranges);
-  const juice = `Juice with ${apples} apples and ${oranges} oranges`;
+  const applePieces = cutFruitPieces(apples);
+  const orangePieces = cutFruitPieces(oranges);
+  const juice = `Juice with ${applePieces} apples and ${orangePieces} oranges`;
   return juice;
 }
 
 console.log(fruitProcessor(2, 3));
 
-function calcAge1(birthYear) {
-  return 2037 - birthYear;
-}
+const calcAverage = (a, b, c) => Math.floor(a + b + c / 3);
+const averageDolphins = calcAverage(44, 23, 71);
+const averageKoalas = calcAverage(65, 54, 49);
 
-const age1 = calcAge1(1990);
-console.log(age1);
+console.log(averageDolphins, averageKoalas);
 
-const calcAge3 = (birthYear) => 2037 - birthYear;
-
-console.log(calcAge3(1991));
-const yearsUntilRetirement = (birthYear) => {
-  const age = 2037 - birthYear;
-  const retirement = 65 - age;
-  return retirement;
+const checkWinner = function (averageDolphins, averageKoalas) {
+  if (averageDolphins >= 2 * averageKoalas) {
+    return `Dolphins win ${averageDolphins} vs ${averageKoalas}`;
+  } else if (averageKoalas >= 2 * averageDolphins) {
+    return `Koalas win ${averageKoalas} vs ${averageDolphins}`;
+  } else {
+    return `No one won`;
+  }
 };
-console.log(yearsUntilRetirement(1991));
+console.log(checkWinner(averageDolphins, averageKoalas));
